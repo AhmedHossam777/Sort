@@ -16,7 +16,5 @@ export class NumberCollection {
   }
 }
 
-// const collection = new NumberCollection([9, 5, 73, -8]);
-// collection.length
 
 //? get : this makes a getter that make the function we defined accessed by the object of the class as we access a property not a method
