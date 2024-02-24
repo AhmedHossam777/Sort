@@ -1,6 +1,5 @@
 import { CharacterCollection } from './CharacterCollection';
 import { LinkedList } from './LinkedList';
-import { Sorter } from './Sorter';
 import { NumberCollection } from './NumbersCollection';
 
 const numberCollection = new NumberCollection([9, -1, 5, 4, 3]);
