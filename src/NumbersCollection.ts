@@ -1,5 +1,9 @@
-export class NumberCollection {
-  constructor(public data: number[]) {}
+import { Sorter } from './Sorter';
+
+export class NumberCollection extends Sorter {
+  constructor(public data: number[]) {
+    super()
+  }
 
   get length(): number {
     return this.data.length;
@@ -15,6 +19,5 @@ export class NumberCollection {
     this.data[leftIndex] = temp;
   }
 }
-
 
 //? get : this makes a getter that make the function we defined accessed by the object of the class as we access a property not a method
