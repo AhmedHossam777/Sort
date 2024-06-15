@@ -1,23 +1,20 @@
-import { CharacterCollection } from './CharacterCollection';
-import { LinkedList } from './LinkedList';
-import { NumberCollection } from './NumbersCollection';
+export class Sorter {
+	constructor ( public collection: number[] ) {}
 
-const numberCollection = new NumberCollection([9, -1, 5, 4, 3]);
-numberCollection.sort()
-console.log(numberCollection.data);
+	sort (): void {
+		for ( let i = 0 ; i < this.collection.length ; i++ ) {
+			for ( let j = i + 1 ; j < this.collection.length ; j++ ) {
+				let temp = 0;
+				if ( this.collection[i] > this.collection[j] ) {
+					temp = this.collection[i];
+					this.collection[i] = this.collection[j];
+					this.collection[j] = temp;
+				}
+			}
+		}
+	}
+}
 
-const characterCollection = new CharacterCollection('Ahmed');
-characterCollection.sort()
-console.log(characterCollection.data);
-
-
-const linkedlist = new LinkedList();
-
-linkedlist.add(10);
-linkedlist.add(-1);
-linkedlist.add(50);
-linkedlist.add(-6);
-linkedlist.add(7);
-
-linkedlist.sort();
-linkedlist.print()
+const sorted = new Sorter([ 5, 2, 9, 7, -1 ]);
+sorted.sort();
+console.log(sorted.collection);

@@ -1,19 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CharacterCollection_1 = require("./CharacterCollection");
-const LinkedList_1 = require("./LinkedList");
-const NumbersCollection_1 = require("./NumbersCollection");
-const numberCollection = new NumbersCollection_1.NumberCollection([9, -1, 5, 4, 3]);
-numberCollection.sort();
-console.log(numberCollection.data);
-const characterCollection = new CharacterCollection_1.CharacterCollection('Ahmed');
-characterCollection.sort();
-console.log(characterCollection.data);
-const linkedlist = new LinkedList_1.LinkedList();
-linkedlist.add(10);
-linkedlist.add(-1);
-linkedlist.add(50);
-linkedlist.add(-6);
-linkedlist.add(7);
-linkedlist.sort();
-linkedlist.print();
+exports.Sorter = void 0;
+class Sorter {
+    constructor(collection) {
+        this.collection = collection;
+    }
+    sort() {
+        for (let i = 0; i < this.collection.length; i++) {
+            for (let j = i + 1; j < this.collection.length; j++) {
+                let temp = 0;
+                if (this.collection[i] > this.collection[j]) {
+                    temp = this.collection[i];
+                    this.collection[i] = this.collection[j];
+                    this.collection[j] = temp;
+                }
+            }
+        }
+    }
+}
+exports.Sorter = Sorter;
+const sorted = new Sorter([5, 2, 9, 7, -1]);
+sorted.sort();
+console.log(sorted.collection);
