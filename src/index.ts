@@ -1,27 +1,8 @@
-export class Sorter {
-	constructor ( public collection: number[] | string ) {}
+import { Sorter }            from './Sorter';
+import { NumbersCollection } from './NumbersCollection';
 
-	sort (): void {
-		const { length } = this.collection;
+const numbers = new NumbersCollection([ 1, 6, 9, 8, 7, 1, -20, -3 ]);
 
-		for ( let i = 0 ; i < length ; i++ ) {
-			for ( let j = i + 1 ; j < length ; j++ ) {
-				if ( this.collection instanceof Array ) {
-					if ( this.collection[i] > this.collection[j] ) {
-						const temp = this.collection[i];
-						this.collection[i] = this.collection[j];
-						this.collection[j] = temp;
-
-					}
-				}
-				if ( typeof ( this.collection ) === 'string' ) {
-					this.collection = this.collection.toLowerCase().split('').sort().join('');
-				}
-			}
-		}
-	}
-}
-
-const sorted = new Sorter('Ahmed Hossam');
+const sorted = new Sorter(numbers);
 sorted.sort();
-console.log(sorted.collection);
+console.log(numbers.data);
