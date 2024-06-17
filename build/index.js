@@ -6,19 +6,24 @@ class Sorter {
         this.collection = collection;
     }
     sort() {
-        for (let i = 0; i < this.collection.length; i++) {
-            for (let j = i + 1; j < this.collection.length; j++) {
-                let temp = 0;
-                if (this.collection[i] > this.collection[j]) {
-                    temp = this.collection[i];
-                    this.collection[i] = this.collection[j];
-                    this.collection[j] = temp;
+        const { length } = this.collection;
+        for (let i = 0; i < length; i++) {
+            for (let j = i + 1; j < length; j++) {
+                if (this.collection instanceof Array) {
+                    if (this.collection[i] > this.collection[j]) {
+                        const temp = this.collection[i];
+                        this.collection[i] = this.collection[j];
+                        this.collection[j] = temp;
+                    }
+                }
+                if (typeof (this.collection) === 'string') {
+                    this.collection = this.collection.toLowerCase().split('').sort().join('');
                 }
             }
         }
     }
 }
 exports.Sorter = Sorter;
-const sorted = new Sorter([5, 2, 9, 7, -1]);
+const sorted = new Sorter('Ahmed Hossam');
 sorted.sort();
 console.log(sorted.collection);
